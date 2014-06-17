@@ -1,16 +1,11 @@
 require 'data_mapper'
 require 'sinatra'
 require 'sinatra/flash'
-require_relative 'helpers'
-
-env = ENV["RACK_ENV"] || "development"
-
-DataMapper.setup(:default, "postgres://localhost/bookmark_manager_#{env}")
 require './lib/link'
 require './lib/tag'
 require './lib/user'
-DataMapper.finalize
-DataMapper.auto_upgrade!
+require_relative 'data_mapper_setup'
+require_relative 'helpers'
 
 enable :sessions
 set :session_secret, 'super secret encryption key'

@@ -6,6 +6,7 @@ gem 'datamapper'
 gem 'dm-postgres-adapter'
 gem 'capybara'
 gem 'bcrypt-ruby'
+gem 'sinatra-partial'
 
 group :development, :test do 
 	gem 'rspec'

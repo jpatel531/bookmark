@@ -18,4 +18,12 @@ class User
 
 	validates_confirmation_of :password, message: "Sorry, your passwords don't match%"
 
+	def self.authenticate(email, password)
+		user = first(email: email)
+		if user && BCrypt::Password.new(user.password_digest) == password
+			user
+		else
+			nil
+		end
+	end
 end
